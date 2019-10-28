@@ -2,6 +2,8 @@
 
 #include "../../NCLGL/window.h"
 #include "Renderer.h"
+#include "Shader.h"
+#include "Mesh.h"
 
 int main()	{
 	Window w("My First OpenGL 3 Triangle!", 800 , 600, false);
