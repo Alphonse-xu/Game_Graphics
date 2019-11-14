@@ -1,10 +1,10 @@
-#include "Renderer.h"
+﻿#include "Renderer.h"
 
 Renderer::Renderer(Window &parent) : OGLRenderer(parent)	{
-	triangle = Mesh::GenerateTriangle();
+	triangle = Mesh::GenerateTriangle(); //指向MESH类
 
-	currentShader = new Shader(SHADERDIR"basicVertex.glsl",
-		SHADERDIR"colourFragment.glsl");
+	currentShader = new Shader(SHADERDIR"CourseVertexShader.glsl",
+		SHADERDIR"CourseFragmentShader.glsl");
 
 	if(!currentShader->LinkProgram()) {
 		return;
@@ -17,10 +17,11 @@ Renderer::~Renderer(void)	{
 }
 
 void Renderer::RenderScene()	{
-	glClearColor(0.2f,0.2f,0.2f,1.0f);
-	glClear(GL_COLOR_BUFFER_BIT);	
+	glClearColor(1.0f,1.0f,0.0f,1.0f);	//设置清屏颜色
+	glClear(GL_COLOR_BUFFER_BIT);	//清屏
 
-	glUseProgram(currentShader->GetProgram());
+	//使用shader
+	glUseProgram(currentShader->GetProgram()); //shader.program才是返回的句柄
 	triangle->Draw();
 	glUseProgram(0);
 
