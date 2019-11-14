@@ -2,6 +2,7 @@
 
 #include "../../nclGL/window.h"
 #include "Renderer.h"
+#include "../../nclGL/glm.hpp"
 
 int main() {
 	Window w("Vertex Transformation!", 800, 600, false);
