@@ -22,7 +22,9 @@ void Renderer::RenderScene()	{
 
 	//使用shader
 	glUseProgram(currentShader->GetProgram()); //shader.program才是返回的句柄
+
 	triangle->Draw();
+
 	glUseProgram(0);
 
 	SwapBuffers();	

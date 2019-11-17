@@ -1,8 +1,8 @@
-#pragma comment(lib, "nclgl.lib")
+﻿#pragma comment(lib, "nclgl.lib")
 
 #include "../../nclGL/window.h"
 #include "Renderer.h"
-#include "../../nclGL/glm.hpp"
+#include "glm/glm.hpp"
 
 int main() {
 	Window w("Vertex Transformation!", 800, 600, false);
@@ -35,7 +35,7 @@ int main() {
 				--scale;
 
 			if (Window::GetKeyboard()->KeyDown(KEYBOARD_LEFT))
-				++rotation;
+				++rotation; 
 			if (Window::GetKeyboard()->KeyDown(KEYBOARD_RIGHT))
 				--rotation;
 
@@ -55,11 +55,12 @@ int main() {
 				position.z += 1.0f;
 
             
-			
+			//第一次生成三角形，MVP变换得到三个三角形
 			renderer.SetRotation(rotation);
 			renderer.SetScale(scale);
 			renderer.SetPosition(position);
 			renderer.RenderScene();
+			//微妙为单位刷新画面
 			renderer.UpdateScene(w.GetTimer()->GetTimedMS());
 			renderer.RenderScene();
 		}

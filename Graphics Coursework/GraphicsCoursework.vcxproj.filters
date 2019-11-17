@@ -16,13 +16,16 @@
     <Filter Include="shaders">
       <UniqueIdentifier>{7c354bc6-6dcf-4a60-85fa-6f63f511d64f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="main">
+      <UniqueIdentifier>{6a6550e3-a717-4d93-a57b-07b21fd82378}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="coursework.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>main</Filter>
     </ClCompile>
     <ClCompile Include="Renderer.cpp">
-      <Filter>Resource Files</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

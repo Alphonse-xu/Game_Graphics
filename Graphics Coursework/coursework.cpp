@@ -23,7 +23,7 @@ int main()	{
 	}
 	
 	Renderer renderer(w); //创建Renderer类的一个实例，将其传递给Window类，以便它知道要渲染到的内容。
-	if(renderer.HasInitialised()) {
+	if(!renderer.HasInitialised()) {
 		cout << "Failed to init draw" << endl; //如果窗口无法初始化，终止进程
 		return -1;
 	}
