@@ -21,10 +21,16 @@
     <ClCompile Include="Couresework.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Island.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Renderer.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Island.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

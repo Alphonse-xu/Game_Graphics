@@ -18,4 +18,6 @@ protected:
 	SceneNode* root;
 	Camera* camera;
 
+	Shader* tshader;
+	Mesh* triangle;
 };

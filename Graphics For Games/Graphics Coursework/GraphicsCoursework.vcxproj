@@ -71,9 +71,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Couresework.cpp" />
+    <ClCompile Include="Island.cpp" />
     <ClCompile Include="Renderer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Island.h" />
     <ClInclude Include="Renderer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -1,13 +1,17 @@
-#include "Renderer.h"
+﻿#include "Renderer.h"
 
 Renderer::Renderer(Window& parent) : OGLRenderer(parent) {
 	CubeRobot::CreateCube(); // Important !
+	triangle = Mesh::GenerateTriangle();
 	camera = new Camera();
 
 	currentShader = new Shader(SHADERDIR "SceneVertex.glsl",
 		SHADERDIR "SceneFragment.glsl");
 
-	if (!currentShader->LinkProgram()) {
+	tshader = new Shader(SHADERDIR"basicVertex.glsl",
+		SHADERDIR"colourFragment.glsl");
+
+	if (!currentShader->LinkProgram() || !tshader->LinkProgram()) {
 		return;
 
 	}
@@ -27,7 +31,7 @@ Renderer::Renderer(Window& parent) : OGLRenderer(parent) {
 Renderer ::~Renderer(void) {
 	delete root;
 	CubeRobot::DeleteCube(); // Also important !
-
+	delete triangle;
 }
 
 void Renderer::UpdateScene(float msec) {
@@ -46,9 +50,23 @@ void Renderer::RenderScene() {
 	glUniform1i(glGetUniformLocation(currentShader->GetProgram(),
 		"diffuseTex"), 1);
 
-	DrawNode(root);
+	glViewport(0, 0, 800, 600);
+	glColor3f(0.0, 0.4, 0.2);//设定物体的RGB颜色
+	glBegin(GL_LINES);//显示一组之弦断，其端点坐标在glVertex函数中指定
+	glVertex2f(0.0, -1.0);//指定第一个点
+	glVertex2f(0.0, 1.0);//指定第二个点
+	glEnd();//结束
+	glFlush();
 
+	glViewport(0, 0, 400, 600);
+	DrawNode(root);
 	glUseProgram(0);
+
+	glViewport(400, 0, 400, 600);
+	glUseProgram(currentShader->GetProgram());
+	triangle->Draw();
+	glUseProgram(0);
+
 	SwapBuffers();
 }
 

@@ -10,7 +10,7 @@
 
 #define HEIGHTMAP_X 16.0f
 #define HEIGHTMAP_Z 16.0f
-#define HEIGHTMAP_Y 1.25f
+#define HEIGHTMAP_Y 0.5f
 #define HEIGHTMAP_TEX_X 1.0f / 257.0f
 #define HEIGHTMAP_TEX_Z 1.0f / 257.0f
 
